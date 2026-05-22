@@ -10,12 +10,11 @@ from linebot.models import MessageEvent, TextMessage, TextSendMessage
 app = FastAPI()
 
 # 1. ตั้งค่า API Key ต่างๆ (ใส่คีย์จริงของคุณตรงนี้ได้เลย)
-OPENAI_API_KEY = "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"
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 LINE_CHANNEL_ACCESS_TOKEN = "ow2L0VaoMgZyhKJuO7z8JfILFRT8LLyCw6WtsSAvngZZ2HJUpca8XsEG+7mLewnFYp4j+qLuYRFtzhs9oRhKVeelqhWLmTlx3L8xjYkIh3XimTt8u8sWzYT3T8mcxwLoX/Zwvd0ftFkdCh0zsTmSwQdB04t89/1O/w1cDnyilFU="
 LINE_CHANNEL_SECRET = "60400081b3e6a9c10ceb19f47efa28f7"
 LOVABLE_API_URL = "https://arexhotel.lovable.app/api/public/rooms/book"
 
-client = OpenAI(api_key=OPENAI_API_KEY)
 line_bot_api = LineBotApi(LINE_CHANNEL_ACCESS_TOKEN)
 handler = WebhookHandler(LINE_CHANNEL_SECRET)
 
